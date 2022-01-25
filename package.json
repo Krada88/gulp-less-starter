@@ -1,0 +1,19 @@
+{
+  "name": "gulp-less-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Krada88/gulp-less-starter.git",
+  "author": "Burzum <studio-orange@yandex.ru>",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.27.7",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-less": "^5.0.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "require-dir": "^1.2.0"
+  }
+}
