@@ -1,9 +1,5 @@
-'use strict';
+const del = require('del');
 
-const 
-    gulp = require('gulp'),
-    del = require('del');
-
-gulp.task('clean', () =>{
-    return del(['./public']);
-})
+module.exports = async function clean() {
+    await del('./public');
+};

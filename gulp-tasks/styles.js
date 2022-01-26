@@ -7,7 +7,7 @@ const
     cssnano = require('gulp-cssnano'),
     rename = require('gulp-rename');
 
-gulp.task('styles', () => {
+module.exports = function styles(){
     return gulp.src('./dev/**/*.less')
         .pipe(sourcemaps.init())
         .pipe(less())
@@ -18,4 +18,4 @@ gulp.task('styles', () => {
             path.extname = '.css';
         }))
         .pipe(gulp.dest('./public/css/'))
-})
+}
