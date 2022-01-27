@@ -1,11 +1,6 @@
 'use strict';
 
-const 
-    gulp = require('gulp'),
-    notify = require('gulp-notify');
-    //requireDir = require('require-dir');
-
-//requireDir('./gulp-tasks/');
+const gulp = require('gulp');
 
 exports.clean = require('./gulp-tasks/clean');
 exports.html = require('./gulp-tasks/html');

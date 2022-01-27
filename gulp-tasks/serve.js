@@ -1,27 +1,20 @@
-
 const
-    gulp = require('gulp'),
+    {watch, series} = require('gulp'),
     browserSync = require('browser-sync').create(),
-    html = require('./html');
-    styles = require('./styles');
+    html = require('./html.js');
+    styles = require('./styles.js');
 
 module.exports = function serve(cb){
 
     browserSync.init({
         server: {
             baseDir: './public',
-            notify: true,
-            // open: true,
-            // cors: true
+            notify: true
         }
     });
 
-//     return  gulp.watch('../dev/**/*.less', () => {
-//         return gulp.series('styles');
-//     });
-
-    gulp.watch('./dev/*.html', gulp.series(html)).on('change', browserSync.reload);
-    gulp.watch('./dev/**/*.less', gulp.series(styles)).on('change', browserSync.reload);
+    watch('./dev/*.html', series(html)).on('change', browserSync.reload);
+    watch('./dev/**/*.less', series(styles)).on('change', browserSync.reload);
 
     return cb()
  }

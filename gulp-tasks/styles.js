@@ -1,21 +1,24 @@
-'use strict';
-
 const 
-    gulp = require('gulp'),
+    {src, dest} = require('gulp'),
     less = require('gulp-less'),
     sourcemaps = require('gulp-sourcemaps'),
-    cssnano = require('gulp-cssnano'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    concatCss = require('gulp-concat-css'),
+    autoprefixer = require('gulp-autoprefixer'),
+    cssnano = require('gulp-cssnano');
 
 module.exports = function styles(){
-    return gulp.src('./dev/**/*.less')
+
+    return src('./dev/**/*.less')
         .pipe(sourcemaps.init())
         .pipe(less())
+        .pipe(autoprefixer())
+        .pipe(concatCss('style.css'))
         .pipe(cssnano())
         .pipe(sourcemaps.write())
         .pipe(rename((path) => {
             path.basename += '.min'
             path.extname = '.css';
         }))
-        .pipe(gulp.dest('./public/css/'))
+        .pipe(dest('./public/css/'))
 }
