@@ -4,7 +4,7 @@ const
     html = require('./html.js');
     styles = require('./styles.js');
 
-module.exports = function serve(cb){
+module.exports = function serve(){
 
     browserSync.init({
         server: {
@@ -14,7 +14,7 @@ module.exports = function serve(cb){
     });
 
     watch('./dev/*.html', series(html)).on('change', browserSync.reload);
-    watch('./dev/**/*.less', series(styles)).on('change', browserSync.reload);
+    watch('./dev/css/*.less', series(styles)).on('change', browserSync.reload);
 
-    return cb()
+    //return cb()
  }

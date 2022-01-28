@@ -1,8 +1,15 @@
-'use strict';
+const 
+    {series} = require('gulp'),
+    clean =require('./gulp-tasks/clean'),
+    html = require('./gulp-tasks/html'), 
+    styles = require('./gulp-tasks/styles'),
+    build =  require('./gulp-tasks/build'),
+    serve =  require('./gulp-tasks/serve');
 
-const gulp = require('gulp');
+exports.clean = clean;
+exports.html = html;
+exports.styles = styles;
+exports.build = build;
+exports.serve = serve;
 
-exports.clean = require('./gulp-tasks/clean');
-exports.html = require('./gulp-tasks/html');
-exports.serve = require('./gulp-tasks/serve');
-exports.styles = require('./gulp-tasks/styles');
+exports.default = series(clean, serve);
