@@ -1,5 +1,5 @@
 const del = require('del');
 
-module.exports = async function clean() {
+module.exports = async () => {
     await del('./public');
-};
+}

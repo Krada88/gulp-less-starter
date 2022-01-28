@@ -7,8 +7,7 @@ const
     autoprefixer = require('gulp-autoprefixer'),
     cssnano = require('gulp-cssnano');
 
-module.exports = function styles(){
-
+module.exports = () => {
     return src('./dev/**/*.less')
         .pipe(sourcemaps.init())
         .pipe(less())

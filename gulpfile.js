@@ -3,13 +3,17 @@ const
     clean =require('./gulp-tasks/clean'),
     html = require('./gulp-tasks/html'), 
     styles = require('./gulp-tasks/styles'),
-    build =  require('./gulp-tasks/build'),
-    serve =  require('./gulp-tasks/serve');
+    //webp =  require('./gulp-tasks/webp'),
+    serve =  require('./gulp-tasks/serve'),
+    build = series(clean, html, styles),
+    runServe = series(build, serve);
+
 
 exports.clean = clean;
 exports.html = html;
 exports.styles = styles;
+//exports.webp =
 exports.build = build;
 exports.serve = serve;
 
-exports.default = series(clean, serve);
+exports.default = runServe;

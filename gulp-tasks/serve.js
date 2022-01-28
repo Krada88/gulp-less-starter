@@ -4,11 +4,12 @@ const
     html = require('./html.js');
     styles = require('./styles.js');
 
-module.exports = function serve(){
+module.exports = () => {
 
     browserSync.init({
         server: {
-            baseDir: './public',
+            baseDir: './public/',
+            index: 'index.html',
             notify: true
         }
     });
@@ -16,5 +17,4 @@ module.exports = function serve(){
     watch('./dev/*.html', series(html)).on('change', browserSync.reload);
     watch('./dev/css/*.less', series(styles)).on('change', browserSync.reload);
 
-    //return cb()
  }
