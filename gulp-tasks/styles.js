@@ -7,8 +7,8 @@ const
     autoprefixer = require('gulp-autoprefixer'),
     cssnano = require('gulp-cssnano');
 
-module.exports = () => {
-    return src('./dev/**/*.less')
+module.exports = async(cb) => {
+    src('./dev/**/*.less')
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(autoprefixer())
@@ -19,5 +19,6 @@ module.exports = () => {
             path.basename += '.min'
             path.extname = '.css';
         }))
-        .pipe(dest('./public/css/'))
+        .pipe(dest('./public/css/'));
+    cb();    
 }

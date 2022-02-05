@@ -1,5 +1,7 @@
 const del = require('del');
+const { clean } = require('../gulpfile');
 
-module.exports = async () => {
-    await del('./public');
+module.exports = async(cb) => {
+    del('./public');
+    cb();
 }
